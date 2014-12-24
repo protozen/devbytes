@@ -1,22 +1,16 @@
 <head>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/platform.js"></script>
+  <link rel="import" href="components/google-chart.html">
 </head>
 <body>
-  <div id="chart_div" style="width:400; height:300"></div>
-  <script>
-    google.load('visualization', '1.0', {'packages':['corechart']})
-    google.setOnLoadCallback(function() {
-      var data = new google.visualization.arrayToDataTable(
-        [["Day", "A", "B", "C"], ["Mon", 20, 45, 28], ["Tue", 31, 66, 38],
-        ["Wed", 50, 85, 55], ["Thu", 77, 50, 77], ["Fri", 68, 15, 66]]);
-      var options = {
-        "seriesType": "bars", "series": {"2": {"type": "line"}},
-        "width": 400, "height": 300
-      };
-
-      var div = document.getElementById('chart_div');
-      var chart = new google.visualization.ComboChart(div);
-      chart.draw(data, options);
-    })
-  </script>
+  <google-chart
+    type="combo"
+    height="300px"
+    width="400px"
+    options="{'seriesType': 'bars',
+              'series': {'2': {'type': 'line'}}}"
+    data="[['Day', 'A', 'B', 'C'], ['Mon', 20, 45, 28],
+            ['Tue', 31, 66, 38], ['Wed', 50, 85, 55],
+            ['Thu', 77, 50, 77], ['Fri', 68, 15, 66]]">
+    </google-chart>
 </body>
