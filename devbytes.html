@@ -4,5 +4,11 @@
 <body>
   <div id="chart_div" style="width:400; height:300"></div>
   <script>
+    if (google.loader.ClientLocation != null) {
+      document.write("Your location is " + google.loader.ClientLocation.address.city
+      + ", " + google.loader.ClientLocation.address.region);
+    } else {
+      console.log("Your Location Was Not Detected By Google Loader");
+    }
   </script>
 </body>
